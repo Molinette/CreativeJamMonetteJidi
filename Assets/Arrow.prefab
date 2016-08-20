@@ -30,7 +30,7 @@ GameObject:
   - 114: {fileID: 11416280}
   m_Layer: 0
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.442, y: -3.051, z: 0}
   m_LocalScale: {x: 0.1534444, y: 0.01698181, z: 0.055685602}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 495114}
   - {fileID: 496580}
@@ -75,7 +74,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.3543869, y: 0.035775892, z: 0}
   m_LocalScale: {x: 0.28683636, y: 1.928614, z: 0.79039156}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 494924}
   m_RootOrder: 0
@@ -88,7 +86,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.707106, w: 0.7071076}
   m_LocalPosition: {x: -0.5761253, y: 0.02, z: 0}
   m_LocalScale: {x: 2.7634137, y: 0.30582926, z: 0.842727}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.9999}
   m_Children: []
   m_Father: {fileID: 494924}
   m_RootOrder: 1

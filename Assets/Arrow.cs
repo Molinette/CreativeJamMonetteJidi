@@ -16,7 +16,6 @@ public class Arrow : MonoBehaviour {
 			angle += 180;
 		}
 		transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, angle);
-		print (Mathf.Atan (rb.velocity.y / rb.velocity.x) * Mathf.Rad2Deg);
 		if (!GetComponent<Renderer> ().isVisible) {
 			Destroy (gameObject);
 		}

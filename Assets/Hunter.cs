@@ -10,6 +10,10 @@ public class Hunter : MonoBehaviour {
 
 	private float firingForce = 0;
 
+	public int acceleration = 2;
+	private float speed = 0;
+	public float maxSpeed = 5;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -21,11 +25,20 @@ public class Hunter : MonoBehaviour {
 		Vector2 firingDirection = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
 
 		if (Input.GetKey (KeyCode.RightArrow)) {
-			transform.Translate(new Vector2(hunterSpeed*Time.deltaTime,0));
+			speed = Mathf.Min (speed + acceleration * Time.deltaTime, maxSpeed);
+		} else if (Input.GetKey (KeyCode.LeftArrow)) {
+			speed = Mathf.Max (speed - acceleration * Time.deltaTime, -maxSpeed);
+		} else {
+			if (speed > 0) {
+				Mathf.Min (speed + acceleration * Time.deltaTime, maxSpeed);
+			} else if(speed < 0){
+				Mathf.Max (speed - acceleration * Time.deltaTime, -maxSpeed);
+			}
 		}
-		else if(Input.GetKey (KeyCode.LeftArrow)){
-			transform.Translate(new Vector2(-hunterSpeed*Time.deltaTime,0));
-		}
+
+		transform.Translate(new Vector2(speed*Time.deltaTime,0));
+
+
 		if (Input.GetMouseButton (0)) {
 			firingForce = Mathf.Min(firingForce + firingForceIncrement * Time.deltaTime, maxFiringForce);
 		}

@@ -15,15 +15,18 @@ public class WindStream : MonoBehaviour {
 		time -= Time.deltaTime;
 
 		if (time <= 0) {
-			windForce = Random.Range (2f, 3f);
-			switch (Random.Range (1, 8)) {
+			windForce = Random.Range (2f, 4f);
+			switch (Random.Range (1, 3)) {
 			case 1:
 				windDirection = new Vector2 (-windForce, 0);
 				break;
 			case 2:
+				windDirection = new Vector2 (windForce, 0);
+				break;
+			/*case 2:
 				windDirection = new Vector2 (-windForce, windForce/20);
 				break;
-			case 3:
+			/*case 3:
 				windDirection = new Vector2 (0, windForce/20);
 				break;
 			case 4:
@@ -40,13 +43,13 @@ public class WindStream : MonoBehaviour {
 				break;
 			case 8:
 				windDirection = new Vector2 (-windForce, -windForce/20);
-				break;
+				break;*/
 			}
 
-			time = Random.Range(15,30);
+			time = Random.Range(5,15);
 		}
 
-		//print ("time left: " + time + "; windDirection: " + windDirection + "; windForce: " + windForce);
+		print ("time left: " + time + "; windDirection: " + windDirection + "; windForce: " + windForce);
 	}
 
 	public Vector2 GetWindDirection(){

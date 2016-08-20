@@ -25,4 +25,29 @@ public class Seagull : MonoBehaviour {
 
 		rb.AddForce (GameObject.Find ("Wind").GetComponent<WindStream> ().GetWindDirection ().normalized * GameObject.Find ("Wind").GetComponent<WindStream> ().GetWindForce ());
 	}
+
+
+	void OnTriggerEnter2D(Collider2D collision){
+
+
+		if (collision.gameObject.CompareTag("Arrow")) {
+
+			Destroy (this.gameObject);
+			Destroy (collision.gameObject);
+
+
+		}
+
+		if  (collision.gameObject.CompareTag("Square")) {
+
+			Destroy (this.gameObject);
+			Destroy (collision.gameObject);
+
+
+		}
+			
+
+
+
+	}
 }
