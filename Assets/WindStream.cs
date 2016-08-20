@@ -46,7 +46,7 @@ public class WindStream : MonoBehaviour {
 			time = Random.Range(15,30);
 		}
 
-		print ("time left: " + time + "; windDirection: " + windDirection + "; windForce: " + windForce);
+		//print ("time left: " + time + "; windDirection: " + windDirection + "; windForce: " + windForce);
 	}
 
 	public Vector2 GetWindDirection(){

@@ -11,12 +11,17 @@ public class Arrow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.Atan(rb.velocity.y/rb.velocity.x)*Mathf.Rad2Deg);
-
+		float angle = Mathf.Atan (rb.velocity.y / rb.velocity.x) * Mathf.Rad2Deg;
+		if (rb.velocity.x > 0) {
+			angle += 180;
+		}
+		transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, angle);
+		print (Mathf.Atan (rb.velocity.y / rb.velocity.x) * Mathf.Rad2Deg);
 		if (!GetComponent<Renderer> ().isVisible) {
 			Destroy (gameObject);
 		}
-		rb.AddForce (GameObject.Find ("Wind").GetComponent<WindStream> ().GetWindDirection ().normalized * GameObject.Find ("Wind").GetComponent<WindStream> ().GetWindForce () * 2);
+		
+		rb.AddForce (GameObject.Find ("Wind").GetComponent<WindStream> ().GetWindDirection ().normalized * GameObject.Find ("Wind").GetComponent<WindStream> ().GetWindForce () * 1.5f);
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
