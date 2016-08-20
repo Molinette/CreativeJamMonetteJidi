@@ -70,10 +70,6 @@ public class CubeScript : MonoBehaviour {
 			rb2d.AddForce (new Vector2 (0, force*-1));
 			timerPlayerTwo = timer;
 		}
-
-		//Timer
-		timerPlayerTwo -= Time.deltaTime;
-		timerPlayerOne -= Time.deltaTime;
 	}
 
 
