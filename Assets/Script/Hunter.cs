@@ -48,4 +48,14 @@ public class Hunter : MonoBehaviour {
 
 		rb.AddForce (windStream.GetWindDirection ().normalized * windStream.GetWindForce () * windFactor);
 	}
+
+
+	void OnTriggerEnter2D(Collider2D coll){
+
+		if(coll.gameObject.CompareTag("Fire")){
+
+			Destroy(gameObject);
+		}
+
+	}
 }
