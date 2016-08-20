@@ -11,10 +11,8 @@ public class FireSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.J)) {
-			transform.Translate (new Vector2(5 * Time.deltaTime, 0));
-		} else if (Input.GetKey (KeyCode.G)) {
-			transform.Translate (new Vector2(-5 * Time.deltaTime, 0));
-		}
+		if (Input.GetAxis("Player1Horizontal2") != 0)
+			transform.Translate (new Vector2(5 * Time.deltaTime * Input.GetAxis("Player1Horizontal2"), 0));
+		print (Input.GetAxis ("Player1Horizontal2"));
 	}
 }

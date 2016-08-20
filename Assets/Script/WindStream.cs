@@ -16,7 +16,7 @@ public class WindStream : MonoBehaviour {
 		time -= Time.deltaTime;
 
 		if (time <= 0) {
-			windForce = Random.Range (2f, 4f);
+			windForce = Random.Range (2f, 3f);
 			switch (Random.Range (1, 3)) {
 			case 1:
 				windDirection = new Vector2 (-windForce, 0);
@@ -24,27 +24,6 @@ public class WindStream : MonoBehaviour {
 			case 2:
 				windDirection = new Vector2 (windForce, 0);
 				break;
-			/*case 2:
-				windDirection = new Vector2 (-windForce, windForce/20);
-				break;
-			/*case 3:
-				windDirection = new Vector2 (0, windForce/20);
-				break;
-			case 4:
-				windDirection = new Vector2 (windForce, windForce/20);
-				break;
-			case 5:
-				windDirection = new Vector2 (windForce, 0);
-				break;
-			case 6:
-				windDirection = new Vector2 (windForce, -windForce/20);
-				break;
-			case 7:
-				windDirection = new Vector2 (0, -windForce/20);
-				break;
-			case 8:
-				windDirection = new Vector2 (-windForce, -windForce/20);
-				break;*/
 			}
 
 			time = Random.Range(timeRange.x,timeRange.y);

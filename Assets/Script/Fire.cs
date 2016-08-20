@@ -14,9 +14,8 @@ public class Fire : MonoBehaviour {
 	void Update () {
 		timer -= Time.deltaTime;
 		if (timer <= 0) {
-			particles.Stop();
-			Destroy (gameObject,2);
+			particles.Stop ();
+			Destroy (gameObject, 2);
 		}
-		//particles.velocityOverLifetime = GameObject.Find ("Wind").GetComponent<WindStream> ().GetWindDirection ();
 	}
 }

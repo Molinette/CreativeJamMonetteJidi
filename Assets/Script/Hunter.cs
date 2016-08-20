@@ -26,21 +26,20 @@ public class Hunter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector2 mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		/*Vector2 mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		Vector2 firingDirection = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
+		*/
 
-		if (Input.GetKey (KeyCode.RightArrow)) {
-			rb.AddForce(new Vector2(hunterSpeed,0));
+		Vector2 firingDirection = new Vector2 (Input.GetAxis ("Player2Horizontal2"), Input.GetAxis ("Player2Vertical2"));
+		if (Input.GetAxis ("Player2Horizontal") != 0) {
+			rb.AddForce (new Vector2 (hunterSpeed * Input.GetAxis ("Player2Horizontal"), 0));
 			rb.velocity = new Vector2 (Mathf.Min (rb.velocity.x, maxSpeed), 0);
-		} else if (Input.GetKey (KeyCode.LeftArrow)) {
-			rb.AddForce(new Vector2(-hunterSpeed,0));
 			rb.velocity = new Vector2 (Mathf.Max (rb.velocity.x, -maxSpeed), 0);
 		}
-
-		if (Input.GetMouseButton (0)) {
+		if (Input.GetButton ("Player2RB")) {
 			firingForce = Mathf.Min(firingForce + firingForceIncrement * Time.deltaTime, maxFiringForce);
 		}
-		if(Input.GetMouseButtonUp (0)){
+		if(Input.GetButtonUp ("Player2RB")){
 			GameObject projectileInstance = (GameObject)GameObject.Instantiate (projectilePrefab, firingPosition.position, projectilePrefab.transform.rotation);
 			projectileInstance.GetComponent<Rigidbody2D> ().AddForce (firingDirection.normalized*firingForce, ForceMode2D.Impulse);
 			firingForce = 0;

@@ -10,6 +10,7 @@ public class Seagull : MonoBehaviour {
 	public GameObject fireBallPrefab;
 	private WindStream windStream;
 
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
@@ -18,20 +19,21 @@ public class Seagull : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.W)) {
-			rb.AddForce (new Vector2 (0, flyUpwardSpeed));
-		}
-		if (Input.GetKey (KeyCode.D)) {
-			rb.AddForce (new Vector2 (flyHorizontalSpeed, 0));
-		} else if (Input.GetKey (KeyCode.A)) {
-			rb.AddForce (new Vector2 (-flyHorizontalSpeed, 0));
-		}
+		if (Input.GetAxis("Player1Vertical") > 0)
+			rb.AddForce (new Vector2 (0, flyUpwardSpeed*Input.GetAxis("Player1Vertical")));
+		
+		if (Input.GetAxis("Player1Horizontal") != 0)
+			rb.AddForce (new Vector2 (flyHorizontalSpeed * Input.GetAxis("Player1Horizontal"), 0));
 
 		rb.AddForce (windStream.GetWindDirection ().normalized * windStream.GetWindForce () * windFactor);
 
-		if (Input.GetKeyDown (KeyCode.H)) {
+		if (Input.GetButtonDown ("Player1RB")) {
+			fireMarker.SetActive (true);
+		}
+		if (Input.GetButtonUp ("Player1RB")) {
 			GameObject fireBallInstance = (GameObject)GameObject.Instantiate (fireBallPrefab, transform.position, fireBallPrefab.transform.rotation);
 			fireBallInstance.GetComponent<Rigidbody2D> ().velocity = new Vector2 (fireMarker.transform.position.x - transform.position.x, fireMarker.transform.position.y - transform.position.y).normalized * 3;
+			fireMarker.SetActive (false);
 		}
 	}
 
@@ -53,4 +55,6 @@ public class Seagull : MonoBehaviour {
 
 
 	}
+
+
 }
