@@ -28,6 +28,7 @@ GameObject:
   - 50: {fileID: 5003452}
   - 61: {fileID: 6100298}
   - 114: {fileID: 11416280}
+  - 96: {fileID: 9687654}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Arrow
@@ -58,8 +59,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.442, y: -3.051, z: 0}
+  m_LocalPosition: {x: 12.18, y: -3.051, z: 0}
   m_LocalScale: {x: 0.1534444, y: 0.01698181, z: 0.055685602}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 495114}
   - {fileID: 496580}
@@ -74,6 +76,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.3543869, y: 0.035775892, z: 0}
   m_LocalScale: {x: 0.28683636, y: 1.928614, z: 0.79039156}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 494924}
   m_RootOrder: 0
@@ -86,6 +89,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.707106, w: 0.7071076}
   m_LocalPosition: {x: -0.5761253, y: 0.02, z: 0}
   m_LocalScale: {x: 2.7634137, y: 0.30582926, z: 0.842727}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 494924}
   m_RootOrder: 1
@@ -120,6 +124,53 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!96 &9687654
+TrailRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130312}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Time: 3
+  m_StartWidth: 0.01
+  m_EndWidth: 0.01
+  m_Colors:
+    m_Color[0]:
+      serializedVersion: 2
+      rgba: 1040187391
+    m_Color[1]:
+      serializedVersion: 2
+      rgba: 754974719
+    m_Color[2]:
+      serializedVersion: 2
+      rgba: 587202559
+    m_Color[3]:
+      serializedVersion: 2
+      rgba: 402653183
+    m_Color[4]:
+      serializedVersion: 2
+      rgba: 16777215
+  m_MinVertexDistance: 0.1
+  m_Autodestruct: 0
 --- !u!114 &11416280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d43c16bf75c337248a9f637ff485b108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  windFactor: 1.5
 --- !u!212 &21207494
 SpriteRenderer:
   m_ObjectHideFlags: 1

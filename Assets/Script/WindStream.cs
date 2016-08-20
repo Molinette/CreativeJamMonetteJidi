@@ -3,8 +3,9 @@ using System.Collections;
 
 public class WindStream : MonoBehaviour {
 	private Vector2 windDirection;
-	private float windForce = 10;
+	public float windForce = 10;
 	private float time = 0;
+	public Vector2 timeRange = new Vector2(5,15);
 
 	// Use this for initialization
 	void Start () {
@@ -46,10 +47,10 @@ public class WindStream : MonoBehaviour {
 				break;*/
 			}
 
-			time = Random.Range(5,15);
+			time = Random.Range(timeRange.x,timeRange.y);
 		}
 
-		print ("time left: " + time + "; windDirection: " + windDirection + "; windForce: " + windForce);
+		//print ("time left: " + time + "; windDirection: " + windDirection + "; windForce: " + windForce);
 	}
 
 	public Vector2 GetWindDirection(){
