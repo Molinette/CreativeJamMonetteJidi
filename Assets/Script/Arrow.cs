@@ -27,6 +27,12 @@ public class Arrow : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		Destroy (gameObject);
+		
+
+		if(other.gameObject.CompareTag("Fire")){
+
+			Destroy(gameObject);
+		}
+		 
 	}
 }
