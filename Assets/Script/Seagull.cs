@@ -62,6 +62,10 @@ public class Seagull : MonoBehaviour {
 		if  (other.gameObject.CompareTag("Water")) {
 			Destroy (this.gameObject);
 		}
+
+		if  (other.gameObject.CompareTag("Neant")) {
+			Destroy (this.gameObject);
+		}
 	}
 
 	public void RemoveFireBall(){

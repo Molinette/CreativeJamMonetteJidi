@@ -68,5 +68,12 @@ public class Hunter : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
+		if(coll.gameObject.CompareTag("Neant")){
+
+			Destroy(gameObject);
+		}
+
+	
+
 	}
 }
