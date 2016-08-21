@@ -9,6 +9,8 @@ public class Seagull : MonoBehaviour {
 	public GameObject fireMarker;
 	public GameObject fireBallPrefab;
 	private WindStream windStream;
+	private int nbFireBall = 0;
+	private bool canFire = true;
 
 
 	// Use this for initialization
@@ -31,8 +33,16 @@ public class Seagull : MonoBehaviour {
 			fireMarker.SetActive (true);
 		}
 		if (Input.GetButtonUp ("Player1RB")) {
-			GameObject fireBallInstance = (GameObject)GameObject.Instantiate (fireBallPrefab, transform.position, fireBallPrefab.transform.rotation);
-			fireBallInstance.GetComponent<Rigidbody2D> ().velocity = new Vector2 (fireMarker.transform.position.x - transform.position.x, fireMarker.transform.position.y - transform.position.y).normalized * 3;
+			if (canFire == true) {
+				GameObject fireBallInstance = (GameObject)GameObject.Instantiate (fireBallPrefab, transform.position, fireBallPrefab.transform.rotation);
+				fireBallInstance.GetComponent<Rigidbody2D> ().velocity = new Vector2 (fireMarker.transform.position.x - transform.position.x, fireMarker.transform.position.y - transform.position.y).normalized * 3;
+				nbFireBall++;
+			}
+			if (nbFireBall >= 2) {
+				canFire = false;
+			} else if (nbFireBall == 0) {
+				canFire = true;
+			}
 			fireMarker.SetActive (false);
 		}
 	}
@@ -50,15 +60,10 @@ public class Seagull : MonoBehaviour {
 		if  (other.gameObject.CompareTag("Water")) {
 			Destroy (this.gameObject);
 		}
+	}
 
-		if  (other.gameObject.CompareTag("Fire")) {
-			Destroy (this.gameObject);
-
-		}
-			
-
-
-
+	public void RemoveFireBall(){
+		nbFireBall--;
 	}
 
 

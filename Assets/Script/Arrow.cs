@@ -5,6 +5,7 @@ public class Arrow : MonoBehaviour {
 	private Rigidbody2D rb;
 	private WindStream windStream;
 	public float windFactor = 1.5f;
+	//private bool canSuicide;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
@@ -33,6 +34,19 @@ public class Arrow : MonoBehaviour {
 
 			Destroy(gameObject);
 		}
+
+		/*if (other.gameObject.CompareTag ("Boat") && canSuicide) {
+			Destroy (other.gameObject);
+			Destroy(gameObject);
+		}*/
 		 
+	}
+
+	void OnTriggerExit2D(Collider2D other){
+
+		/*if (other.gameObject.CompareTag ("Boat")) {
+			canSuicide = true;
+		}*/
+
 	}
 }

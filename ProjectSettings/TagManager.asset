@@ -7,6 +7,8 @@ TagManager:
   - Arrow
   - Water
   - Fire
+  - Boat
+  - Pheonix
   layers:
   - Default
   - TransparentFX
