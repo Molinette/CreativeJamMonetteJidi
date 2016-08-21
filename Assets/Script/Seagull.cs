@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Seagull : MonoBehaviour {
 	private Rigidbody2D rb;
@@ -13,11 +14,13 @@ public class Seagull : MonoBehaviour {
 	private WindStream windStream;
 	private int nbFireBall = 0;
 	private bool canFire = true;
+	private GameManager gameManager;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		windStream = GameObject.Find ("Wind").GetComponent<WindStream>();
+		gameManager = GameObject.Find ("GameManager").GetComponent<GameManager> ();
 	}
 	
 	// Update is called once per frame
@@ -54,13 +57,17 @@ public class Seagull : MonoBehaviour {
 
 
 		if (other.gameObject.CompareTag("Arrow")) {
-
 			Destroy (this.gameObject);
 			Destroy (other.gameObject);
+			Destroy (fireMarker);
+			//gameManager.Victory (2);
+			SceneManager.LoadScene("Monette");
 		}
 
 		if  (other.gameObject.CompareTag("Water")) {
 			Destroy (this.gameObject);
+			Destroy (fireMarker);
+			SceneManager.LoadScene("Monette");
 		}
 	}
 

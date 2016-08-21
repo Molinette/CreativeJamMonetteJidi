@@ -322,7 +322,7 @@ MonoBehaviour:
   firingForceIncrement: 20
   projectilePrefab: {fileID: 130332, guid: 6305118509a91f74587635cd6f7b5a39, type: 2}
   windFactor: 0.5
-  firingDelay: 1.5
+  firingDelay: 0.8
   audioBowRelease: {fileID: 8290970}
   audioBow: {fileID: 8220904}
 --- !u!114 &11434656

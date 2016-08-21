@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Hunter : MonoBehaviour {
 	public float hunterSpeed = 0.5f;
@@ -24,10 +25,13 @@ public class Hunter : MonoBehaviour {
 	//public float maxSpeed = 5;
 	private Rigidbody2D rb;
 
+	private GameManager gameManager;
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		windStream = GameObject.Find ("Wind").GetComponent<WindStream>();
+		gameManager = GameObject.Find ("GameManager").GetComponent<GameManager> ();
 	}
 	
 	// Update is called once per frame
@@ -56,7 +60,7 @@ public class Hunter : MonoBehaviour {
 
 			audioBowRelease.Play();
 		}
-		print (time);
+	
 		rb.AddForce (windStream.GetWindDirection ().normalized * windStream.GetWindForce () * windFactor);
 	}
 
@@ -66,6 +70,8 @@ public class Hunter : MonoBehaviour {
 		if(coll.gameObject.CompareTag("Fire")){
 
 			Destroy(gameObject);
+			gameManager.Victory (2);
+			SceneManager.LoadScene ("Monette");
 		}
 
 	}
