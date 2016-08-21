@@ -8,10 +8,11 @@ public class Seagull : MonoBehaviour {
 	public float windFactor = 1f;
 	public GameObject fireMarker;
 	public GameObject fireBallPrefab;
+	public AudioSource fireBallSound;
+	public float fireBallSpeed = 5;
 	private WindStream windStream;
 	private int nbFireBall = 0;
 	private bool canFire = true;
-
 
 	// Use this for initialization
 	void Start () {
@@ -35,7 +36,8 @@ public class Seagull : MonoBehaviour {
 		if (Input.GetButtonUp ("Player1RB")) {
 			if (canFire == true) {
 				GameObject fireBallInstance = (GameObject)GameObject.Instantiate (fireBallPrefab, transform.position, fireBallPrefab.transform.rotation);
-				fireBallInstance.GetComponent<Rigidbody2D> ().velocity = new Vector2 (fireMarker.transform.position.x - transform.position.x, fireMarker.transform.position.y - transform.position.y).normalized * 3;
+				fireBallInstance.GetComponent<Rigidbody2D> ().velocity = new Vector2 (fireMarker.transform.position.x - transform.position.x, fireMarker.transform.position.y - transform.position.y).normalized * fireBallSpeed;
+				fireBallSound.Play ();
 				nbFireBall++;
 			}
 			if (nbFireBall >= 2) {

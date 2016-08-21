@@ -21,7 +21,7 @@ public class Fire : MonoBehaviour {
 			if(dead == false)
 				pheonix.RemoveFireBall ();
 			dead = true;
-			Destroy (gameObject, 2);
+			Destroy (gameObject);
 		}
 	}
 }

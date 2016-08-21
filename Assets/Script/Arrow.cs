@@ -35,10 +35,9 @@ public class Arrow : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
-		/*if (other.gameObject.CompareTag ("Boat") && canSuicide) {
-			Destroy (other.gameObject);
+		if (other.gameObject.CompareTag ("Water")) {
 			Destroy(gameObject);
-		}*/
+		}
 		 
 	}
 

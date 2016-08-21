@@ -13,6 +13,12 @@ public class Hunter : MonoBehaviour {
 
 	private float firingForce = 0;
 
+	private float time = 0;
+	public float firingDelay = 1;
+
+	public AudioSource audioBowRelease;
+	public AudioSource audioBow;
+
 	//public int acceleration = 2;
 	//private float speed = 0;
 	//public float maxSpeed = 5;
@@ -29,6 +35,7 @@ public class Hunter : MonoBehaviour {
 		/*Vector2 mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		Vector2 firingDirection = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
 		*/
+		time -= Time.deltaTime;
 
 		Vector2 firingDirection = new Vector2 (Input.GetAxis ("Player2Horizontal2"), Input.GetAxis ("Player2Vertical2"));
 		if (Input.GetAxis ("Player2Horizontal") != 0) {
@@ -36,15 +43,20 @@ public class Hunter : MonoBehaviour {
 			rb.velocity = new Vector2 (Mathf.Min (rb.velocity.x, maxSpeed), 0);
 			rb.velocity = new Vector2 (Mathf.Max (rb.velocity.x, -maxSpeed), 0);
 		}
-		if (Input.GetButton ("Player2RB")) {
+		if (Input.GetButton ("Player2RB") && time <= 0) {
+			if(firingForce <= 0 && firingForce < maxFiringForce)
+				audioBow.Play ();
 			firingForce = Mathf.Min(firingForce + firingForceIncrement * Time.deltaTime, maxFiringForce);
 		}
-		if(Input.GetButtonUp ("Player2RB")){
+		if(Input.GetButtonUp ("Player2RB") && time <= 0){
 			GameObject projectileInstance = (GameObject)GameObject.Instantiate (projectilePrefab, firingPosition.position, projectilePrefab.transform.rotation);
 			projectileInstance.GetComponent<Rigidbody2D> ().AddForce (firingDirection.normalized*firingForce, ForceMode2D.Impulse);
 			firingForce = 0;
-		}
+			time = firingDelay;
 
+			audioBowRelease.Play();
+		}
+		print (time);
 		rb.AddForce (windStream.GetWindDirection ().normalized * windStream.GetWindForce () * windFactor);
 	}
 

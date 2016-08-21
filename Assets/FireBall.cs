@@ -17,6 +17,7 @@ public class FireBall : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.CompareTag ("Water")) {
 			GameObject fireInstance = (GameObject)GameObject.Instantiate (firePrefab, transform.position, firePrefab.transform.rotation);
+			Destroy (gameObject);
 		}
 	}
 }
