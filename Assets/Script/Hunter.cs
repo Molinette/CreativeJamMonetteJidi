@@ -70,13 +70,12 @@ public class Hunter : MonoBehaviour {
 		if(coll.gameObject.CompareTag("Fire")){
 
 			Destroy(gameObject);
-			gameManager.Victory (2);
-			SceneManager.LoadScene ("Monette");
+			gameManager.Victory (1);
 		}
 
 		if(coll.gameObject.CompareTag("Neant")){
-
 			Destroy(gameObject);
+			gameManager.Victory (1);
 		}
 
 	

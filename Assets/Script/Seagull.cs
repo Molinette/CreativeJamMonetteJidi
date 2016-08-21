@@ -60,18 +60,18 @@ public class Seagull : MonoBehaviour {
 			Destroy (this.gameObject);
 			Destroy (other.gameObject);
 			Destroy (fireMarker);
-			//gameManager.Victory (2);
-			SceneManager.LoadScene("Monette");
+			gameManager.Victory (2);
 		}
 
 		if  (other.gameObject.CompareTag("Water")) {
 			Destroy (this.gameObject);
 			Destroy (fireMarker);
-			SceneManager.LoadScene("Monette");
+			gameManager.Victory (2);
 		}
 
 		if  (other.gameObject.CompareTag("Neant")) {
 			Destroy (this.gameObject);
+			gameManager.Victory (2);
 		}
 	}
 

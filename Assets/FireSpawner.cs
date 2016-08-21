@@ -13,6 +13,6 @@ public class FireSpawner : MonoBehaviour {
 	void Update () {
 		if (Input.GetAxis("Player1Horizontal2") != 0)
 			transform.Translate (new Vector2(5 * Time.deltaTime * Input.GetAxis("Player1Horizontal2"), 0));
-		print (Input.GetAxis ("Player1Horizontal2"));
+		//print (Input.GetAxis ("Player1Horizontal2"));
 	}
 }
