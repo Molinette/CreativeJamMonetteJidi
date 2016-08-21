@@ -69,6 +69,10 @@ public class Seagull : MonoBehaviour {
 			Destroy (fireMarker);
 			SceneManager.LoadScene("Monette");
 		}
+
+		if  (other.gameObject.CompareTag("Neant")) {
+			Destroy (this.gameObject);
+		}
 	}
 
 	public void RemoveFireBall(){

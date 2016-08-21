@@ -74,5 +74,12 @@ public class Hunter : MonoBehaviour {
 			SceneManager.LoadScene ("Monette");
 		}
 
+		if(coll.gameObject.CompareTag("Neant")){
+
+			Destroy(gameObject);
+		}
+
+	
+
 	}
 }
